@@ -12,6 +12,11 @@ app = Flask(__name__)
 CORS(app)  # lets the Flutter web/debug build call this from a different origin
 
 
+@app.get("/")
+def health():
+    return "ok"
+
+
 @app.post("/process")
 def process_endpoint():
     if "image" not in request.files:
